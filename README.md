@@ -42,7 +42,7 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
   # get its human
   human_of_cat = cat.human
-  
+
   # invoking cat.human will query the humans table where the id is 1
 ```
 
@@ -57,6 +57,7 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
     finalize!
   end
+  
   # query for human with id 1
   human = Human.find(1)
 

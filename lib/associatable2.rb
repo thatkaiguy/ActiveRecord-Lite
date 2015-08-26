@@ -1,9 +1,6 @@
-require_relative '03_associatable'
-require 'byebug'
-# Phase IV
-module Associatable
-  # Remember to go back to 04_associatable to write ::assoc_options
+require_relative 'associatable'
 
+module Associatable
   def has_one_through(name, through_name, source_name)
 
     through_options = assoc_options[through_name]
@@ -22,7 +19,6 @@ module Associatable
         WHERE
           THG.#{through_options.primary_key} = ?
       SQL
-      #debugger
       results =  DBConnection.execute(
         query_str,
         self.send(through_options.foreign_key)

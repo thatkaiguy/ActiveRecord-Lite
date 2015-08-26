@@ -1,8 +1,5 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
-require 'byebug'
-# NB: the attr_accessor we wrote in phase 0 is NOT used in the rest
-# of this project. It was only a warm up.
 
 class SQLObject
   def self.columns
@@ -70,18 +67,14 @@ class SQLObject
     SQL
     results = DBConnection.execute(find_by_id_query, id)
     results.count == 1 ? self.new(results.first) : nil
-    # ...
   end
 
   def initialize(params = {})
-    params.keys.each do |attr_name|
+    params.each do |attr_name, value|
       attr_name = attr_name.to_sym
       unless self.class.columns.include?(attr_name)
         raise "unknown attribute '#{attr_name}'"
       end
-    end
-
-    params.each do |attr_name, value|
       self.send("#{attr_name}=".to_sym, value)
     end
   end

@@ -27,7 +27,7 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 ```
 ### Associations
 
-* '::belongs_to' - Used to define a parent table relationship.
+* `::belongs_to` - Used to define a parent table relationship.
 
 #### Cat model
 ```
@@ -46,7 +46,7 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
   # invoking cat.human will query the humans table where the id is 1
 ```
 
-* '::has_many' - Used to define the relationship to a child table.
+* `::has_many` - Used to define the relationship to a child table.
 #### Human model
 ```
   class Human < SQLObject
@@ -57,7 +57,7 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
     finalize!
   end
-  
+
   # query for human with id 1
   human = Human.find(1)
 
@@ -66,8 +66,8 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
   # invoking human.cats will query the cats table where the owner_id of the cat is 1
 ```
-* '::has_one_through' - Used to define a relationship to one other object through a join table
-
+* `::has_one_through` - Used to define a relationship to one other object through a join table
+#### Cat model
 ```
   #this example depends on the Human model defined above
   class Cat

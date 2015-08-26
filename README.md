@@ -39,8 +39,10 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
   # query for cat with id 1
   cat = Cat.find(1)
+
   # get its human
   human_of_cat = cat.human
+  
   # invoking cat.human will query the humans table where the id is 1
 ```
 
@@ -57,8 +59,10 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
   end
   # query for human with id 1
   human = Human.find(1)
+
   # get all the human's cats
   cats_of_human = human.cats
+
   # invoking human.cats will query the cats table where the owner_id of the cat is 1
 ```
 * '::has_one_through' - Used to define a relationship to one other object through a join table
@@ -73,7 +77,9 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
   # query for cat with id 1
   cat = Cat.find(1)
+
   # get the cat's home through its human
   home_of_cat = cat.home
+
   # invoking cat.home will query the houses table where for the cat's human's house
 ```

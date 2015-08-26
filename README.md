@@ -9,13 +9,13 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
 ### Basic API
 
-* `::all` - Queries and returns all objects of this class.
-* `::find` - Queries and returns a single object by the id primary key
-* `#save` - Intelligently updates existing record or inserts a new record.
+* __`::all`__ - Queries and returns all objects of this class.
+* __`::find`__ - Queries and returns a single object by the id primary key
+* __`#save`__ - Intelligently updates existing record or inserts a new record.
 
 ### Custom Search
 
-* `::where` - Dynamically builds and executes query that is built up from passed in parameters.
+* __`::where`__ - Dynamically builds and executes query that is built up from passed in parameters.
 
 ```
   Cat.where(name: 'Breakfast')
@@ -27,9 +27,8 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 ```
 ### Associations
 
-* `::belongs_to` - Used to define a parent table relationship.
+* __`::belongs_to`__ - Used to define a parent table relationship.
 
-#### Cat model
 ```
   class Cat < SQLObject
     belongs_to :human, foreign_key: :owner_id
@@ -46,8 +45,8 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
   # invoking cat.human will query the humans table where the id is 1
 ```
 
-* `::has_many` - Used to define the relationship to a child table.
-#### Human model
+* __`::has_many`__ - Used to define the relationship to a child table.
+
 ```
   class Human < SQLObject
     self.table_name = 'humans'
@@ -66,8 +65,8 @@ The 'SQLObject' class behaves similarly to the 'ActiveRecord::Base' class. All R
 
   # invoking human.cats will query the cats table where the owner_id of the cat is 1
 ```
-* `::has_one_through` - Used to define a relationship to one other object through a join table
-#### Cat model
+* __`::has_one_through`__ - Used to define a relationship to one other object through a join table
+
 ```
   #this example depends on the Human model defined above
   class Cat
